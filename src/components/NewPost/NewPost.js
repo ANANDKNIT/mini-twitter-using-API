@@ -13,7 +13,7 @@ class NewPost extends Component {
   postDataHandler = () => {
     const data = {};
     axios
-      .post("https://jsonplaceholder.typicode.com/posts", data)
+      .post("/posts", data)
       .then(response => {
         console.log(response);
       });

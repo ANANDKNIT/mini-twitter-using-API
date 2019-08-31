@@ -13,7 +13,7 @@ class FullPost extends Component {
         this.props.id !== this.state.loadedPost.id
       ) {
         axios
-          .get("https://jsonplaceholder.typicode.com/posts/" + this.props.id)
+          .get("/posts/" + this.props.id)
           .then(response => {
             console.log(response.data, "full post DidUpdate");
 
@@ -25,7 +25,7 @@ class FullPost extends Component {
 
   deletePostHandler = id => {
     axios
-      .delete("https://jsonplaceholder.typicode.com/posts/" + id)
+      .delete("/posts/" + id)
       .then(response => {
         console.log(response);
       });
