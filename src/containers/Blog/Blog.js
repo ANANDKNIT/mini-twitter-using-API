@@ -13,7 +13,8 @@ class Blog extends Component {
     error: false
   };
   componentDidMount() {
-    //     const ApiData= axios.get("https://jsonplaceholder.typicode.com/posts"); //this will not give the correct result because it will execute the method immediately so use promises
+    //     const ApiData= axios.get("https://jsonplaceholder.typicode.com/posts"); 
+    //the above code will not give the correct result because it will execute the method immediately so to avoid this use promises
     axios
       .get("https://jsonplaceholder.typicode.com/posts")
       .then(response => {
@@ -24,7 +25,7 @@ class Blog extends Component {
             author: "Anand"
           };
         });
-
+        console.log(updatedData)
         this.setState({ posts: updatedData });
       })
       .catch(error => {
