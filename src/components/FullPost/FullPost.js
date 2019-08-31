@@ -37,7 +37,6 @@ class FullPost extends Component {
     if (this.props.id) {
       post = <p style={{ textAlign: "center" }}>loading....</p>;
     }
-    console.log(loadedPost);
 
     if (loadedPost) {
       console.log(loadedPost, "render Data");
