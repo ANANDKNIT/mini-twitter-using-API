@@ -12,11 +12,9 @@ class NewPost extends Component {
 
   postDataHandler = () => {
     const data = {};
-    axios
-      .post("/posts", data)
-      .then(response => {
-        console.log(response);
-      });
+    axios.post("/posts", data).then(response => {
+      console.log(response);
+    });
   };
 
   render() {
