@@ -3,6 +3,8 @@ import "./Blog.css";
 import Posts from "./Posts/Posts";
 import { Route, NavLink } from "react-router-dom";
 import NewPost from "./NewPost/NewPost";
+import FullPost from "./FullPost/FullPost"
+
 class Blog extends Component {
   render() {
     return (
@@ -19,11 +21,11 @@ class Blog extends Component {
                 to={{
                   pathname: "new-post",
                   hash: "#submit",
-                  search: "?anand?awsad",
+                  search: "?anand?awsad"
                 }}
-                activeStyle={{color:"orange"}}
+                activeStyle={{ color: "orange" }}
                 activeClassName="custom-class"
-                
+                exact
               >
                 {"NewPost"}
               </NavLink>
@@ -32,6 +34,7 @@ class Blog extends Component {
         </header>
         <Route path="/" exact component={Posts} />
         <Route path="/new-post" component={NewPost} />
+        <Route path="/:id" component={FullPost} />
       </div>
     );
   }
