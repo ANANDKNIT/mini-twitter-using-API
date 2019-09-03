@@ -1,23 +1,37 @@
 import React, { Component } from "react";
 import "./Blog.css";
-import Posts from "./Posts/Posts"
-import {Route,Link } from "react-router-dom"
+import Posts from "./Posts/Posts";
+import { Route, NavLink } from "react-router-dom";
 import NewPost from "./NewPost/NewPost";
 class Blog extends Component {
-
   render() {
     return (
       <div>
-        <header className="Blog"><ul>
-          <li><Link to="/"> Home</Link></li>
-          <li><Link to={{
-            pathname:"new-post",
-          hash:"#submit",
-          search:"?anand?awsad"
-          }}>NewPost</Link></li>
-          </ul></header>
-          <Route exact path="/" component={Posts} />
-          <Route path="/new-post" component={NewPost}/>
+        <header className="Blog">
+          <ul>
+            <li>
+              <NavLink to="/" exact>
+                {"Home"}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={{
+                  pathname: "new-post",
+                  hash: "#submit",
+                  search: "?anand?awsad",
+                }}
+                activeStyle={{color:"orange"}}
+                activeClassName="custom-class"
+                
+              >
+                {"NewPost"}
+              </NavLink>
+            </li>
+          </ul>
+        </header>
+        <Route path="/" exact component={Posts} />
+        <Route path="/new-post" component={NewPost} />
       </div>
     );
   }
