@@ -15,6 +15,7 @@ class NewPost extends Component {
     const data = {};
     axios.post("/posts", data).then(response => {
       console.log(response);
+      // use replace("/") to get the same behaviour as redirect
       this.props.history.push("/");
     });
   };
