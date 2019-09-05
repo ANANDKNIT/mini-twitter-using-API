@@ -8,15 +8,14 @@ class NewPost extends Component {
   state = {
     title: "",
     content: "",
-    author: "Anand",
-    submitted: null
+    author: "Anand"
   };
 
   postDataHandler = () => {
     const data = {};
     axios.post("/posts", data).then(response => {
       console.log(response);
-      this.setState({ submitted: true });
+      this.props.history.push("/");
     });
   };
 
@@ -45,7 +44,6 @@ class NewPost extends Component {
           <option value="Max">Max</option>
         </select>
         <button onClick={this.postDataHandler}>Add Post</button>
-        {this.state.submitted ? <Redirect to="/" /> : null}
       </div>
     );
   }
