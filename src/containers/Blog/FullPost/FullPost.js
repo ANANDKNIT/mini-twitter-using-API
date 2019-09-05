@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./FullPost.css";
+import { withRouter } from "react-router";
 
 class FullPost extends Component {
   state = {
@@ -55,4 +56,4 @@ class FullPost extends Component {
   }
 }
 
-export default FullPost;
+export default withRouter(FullPost);
