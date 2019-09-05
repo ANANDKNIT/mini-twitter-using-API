@@ -2,18 +2,21 @@ import React, { Component } from "react";
 
 import "./NewPost.css";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 class NewPost extends Component {
   state = {
     title: "",
     content: "",
-    author: "Anand"
+    author: "Anand",
+    submitted: null
   };
 
   postDataHandler = () => {
     const data = {};
     axios.post("/posts", data).then(response => {
       console.log(response);
+      this.setState({ submitted: true });
     });
   };
 
@@ -42,6 +45,7 @@ class NewPost extends Component {
           <option value="Max">Max</option>
         </select>
         <button onClick={this.postDataHandler}>Add Post</button>
+        {this.state.submitted ? <Redirect to="/" /> : null}
       </div>
     );
   }
